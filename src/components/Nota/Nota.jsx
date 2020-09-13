@@ -6,9 +6,9 @@ class Nota extends Component {
     return (
       <section className="nota">
         <header className="nota_cabecalho">
-          <h3 className="nota_titulo">Título</h3>
+          <h3 className="nota_titulo">{this.props.titulo}</h3>
         </header>
-        <p className="nota_texto">Escreva uma nota</p>
+        <p className="nota_texto">{this.props.texto}</p>
       </section>
     );
   }
