@@ -8,7 +8,7 @@ import "./assets/index.css";
 class App extends Component {
   constructor() {
     super();
-    this.state = { notas: [] };
+    this.state = { notas: [], categorias: ["Trabalho", "Esporte"] };
   }
 
   criarNota(titulo, texto) {
@@ -25,12 +25,21 @@ class App extends Component {
     this.setState(novoEstado);
   }
 
+  adicionarCategoria(categoria) {
+    const categorias = [...this.state.categorias, categoria];
+    const novoEstado = { ...this.state.notas, categorias: categorias };
+    this.setState(novoEstado);
+  }
+
   render() {
     return (
       <section className="conteudo">
         <FormularioCadastro criarNota={this.criarNota.bind(this)} />
         <main className="conteudo-principal">
-          <ListaDeCategorias />
+          <ListaDeCategorias
+            categorias={this.state.categorias}
+            adicionarCategoria={this.adicionarCategoria.bind(this)}
+          />
           <ListaDeNotas
             deletarNota={this.deletarNota.bind(this)}
             notas={this.state.notas}
