@@ -12,6 +12,7 @@ class Nota extends Component {
       <section className="nota">
         <header className="nota_cabecalho">
           <h3 className="nota_titulo">{this.props.titulo}</h3>
+          <h4>{this.props.categoria}</h4>
           <DeleteIcon onClick={this.apagar.bind(this)} />
         </header>
         <p className="nota_texto">{this.props.texto}</p>
