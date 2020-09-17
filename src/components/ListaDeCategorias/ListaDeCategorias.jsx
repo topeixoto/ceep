@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./estilo.css";
 
 class ListaDeCategorias extends Component {
   handleEventoInput(e) {
@@ -10,14 +11,19 @@ class ListaDeCategorias extends Component {
 
   render() {
     return (
-      <section>
-        <ul>
+      <section className="categorias">
+        <ul className="categorias_lista">
           {this.props.categorias.map((categoria, index) => {
-            return <li key={index}>{categoria}</li>;
+            return (
+              <li className="categorias_item" key={index}>
+                {categoria}
+              </li>
+            );
           })}
         </ul>
         <input
           type="text"
+          className="categorias_input"
           placeholder="Adicionar Categoria"
           onKeyUp={this.handleEventoInput.bind(this)}
         />
