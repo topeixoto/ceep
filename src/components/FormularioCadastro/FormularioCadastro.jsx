@@ -24,15 +24,15 @@ class FormularioCadastro extends Component {
     this.texto = evento.target.value;
   }
 
-  criarNota(evento) {
+  adicionarNota(evento) {
     evento.preventDefault();
     evento.stopPropagation();
-    this.props.criarNota(this.titulo, this.texto, this.categoria);
+    this.props.adicionarNota(this.titulo, this.texto, this.categoria);
   }
 
   render() {
     return (
-      <form className="form-cadastro" onSubmit={this.criarNota.bind(this)}>
+      <form className="form-cadastro" onSubmit={this.adicionarNota.bind(this)}>
         <select onChange={this.handleMudancaCategoria.bind(this)}>
           <option>Sem Categoria</option>
           {this.props.categorias.map((categoria) => {
