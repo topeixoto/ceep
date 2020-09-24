@@ -7,18 +7,24 @@ export default class Notas {
   adicionarNota(titulo, texto, categoria) {
     const nota = new Nota(titulo, texto, categoria);
     this.items.push(nota);
+    this.notificar();
   }
 
   deletarNota(indice) {
     this.items.splice(indice, 1);
+    this.notificar();
   }
 
   inscrever(func) {
     this.inscritos.push(func);
   }
 
+  desinscrever(func) {
+    this.inscritos = this.inscritos.filter((f) => f !== func);
+  }
+
   notificar() {
-    this.inscrever.forEach((func) => func(this.items));
+    this.inscritos.forEach((func) => func(this.items));
   }
 }
 
